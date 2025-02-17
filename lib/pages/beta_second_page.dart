@@ -1,88 +1,87 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_innsbruck_match/pages/beta_add_challenge_page.dart';
-import 'package:travel_innsbruck_match/pages/beta_add_photo.dart';
 
 class BetaSecondPage extends StatelessWidget {
   const BetaSecondPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.red.shade700,
-      appBar: AppBar(
-        title: const Text(
-          'Innsbruck Photo Challenge',
-          style: TextStyle(color: Colors.white),
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Image.asset(
+            'images/back.webp',
+            fit: BoxFit.cover,
+          ),
         ),
-        backgroundColor: Colors.red.shade700,
-        centerTitle: true,
-        elevation: 0,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.15),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: Colors.white, width: 1),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            title: const Text(
+              'Innsbruck Photo Challenge',
+              style: TextStyle(color: Colors.white),
+            ),
+            backgroundColor: Colors.transparent,
+            centerTitle: true,
+            elevation: 0,
+          ),
+          body: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.15),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Colors.white, width: 1),
+                    ),
+                    child: ListView(
+                      padding: const EdgeInsets.all(12),
+                      children: [
+                        _buildCategory('Historical Hunts', [
+                          'Take a selfie with the Goldenes Dachl',
+                          'Find and photograph the entrance of Ambras Castle',
+                          'Spot and capture the Hofkirche’s ‘Black Men’ statues inside the church',
+                        ]),
+                        _buildCategory('Nature & Views', [
+                          'Capture a panoramic shot from Nordkette’s Seegrube station',
+                          'Find and take a photo of a cute animal at Alpenzoo',
+                          'Snap a picture of the Innsbruck skyline at sunset',
+                        ]),
+                        _buildCategory('Cultural & Foodie Challenges', [
+                          'Take a photo of your Tiroler Gröstl',
+                          'Find a street musician in Innsbruck’s Old Town and snap a quick pic',
+                          'Photograph a cozy café with a mountain view',
+                        ]),
+                        _buildCategory('Winter Sports & Adventure', [
+                          'Capture a ski jump moment at Bergisel Ski Jump',
+                          'Take a selfie in full ski gear on the slopes',
+                          'Find and photograph an ice-skating rink in Innsbruck',
+                        ]),
+                      ],
+                    ),
+                  ),
                 ),
-                child: ListView(
-                  padding: const EdgeInsets.all(12),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _buildCategory('Historical Hunts', [
-                      'Take a selfie with the Goldenes Dachl',
-                      'Find and photograph the entrance of Ambras Castle',
-                      'Spot and capture the Hofkirche’s ‘Black Men’ statues inside the church',
-                    ]),
-                    _buildCategory('Nature & Views', [
-                      'Capture a panoramic shot from Nordkette’s Seegrube station',
-                      'Find and take a photo of a cute animal at Alpenzoo',
-                      'Snap a picture of the Innsbruck skyline at sunset',
-                    ]),
-                    _buildCategory('Cultural & Foodie Challenges', [
-                      'Take a photo of your Tiroler Gröstl',
-                      'Find a street musician in Innsbruck’s Old Town and snap a quick pic',
-                      'Photograph a cozy café with a mountain view',
-                    ]),
-                    _buildCategory('Winter Sports & Adventure', [
-                      'Capture a ski jump moment at Bergisel Ski Jump',
-                      'Take a selfie in full ski gear on the slopes',
-                      'Find and photograph an ice-skating rink in Innsbruck',
-                    ]),
+                    _buildActionButton('+ Add a challenge', () {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => const BetaAddChallengePage(),
+                          ));
+                    }),
                   ],
                 ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _buildActionButton('+ Add a photo', () {
-                  Navigator.push(
-                      context,
-                      CupertinoPageRoute(
-                        builder: (context) => const BetaAddPhoto(),
-                      ));
-                }),
-                _buildActionButton(
-                  '+ Add a challenge',
-                  () {
-                    Navigator.push(
-                        context,
-                        CupertinoPageRoute(
-                            builder: (context) =>
-                                const BetaAddChallengePage()));
-                  },
-                )
               ],
             ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 
@@ -133,14 +132,17 @@ class BetaSecondPage extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xffFF2727),
         foregroundColor: Colors.black,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
       ),
-      child: Text(text),
+      child: Text(
+        text,
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 }

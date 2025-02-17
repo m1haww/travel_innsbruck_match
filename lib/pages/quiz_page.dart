@@ -176,7 +176,7 @@ class _QuizPageState extends State<QuizPage> {
       children: [
         Positioned.fill(
           child: Image.asset(
-            'images/salut.jpg',
+            'images/back.webp',
             fit: BoxFit.cover,
           ),
         ),
@@ -237,7 +237,7 @@ class _QuizPageState extends State<QuizPage> {
                                               answer['score'] as int),
                                           style: ElevatedButton.styleFrom(
                                             foregroundColor: Colors.white,
-                                            backgroundColor: Colors.blueGrey,
+                                            backgroundColor: Color(0xffFF2727),
                                             textStyle: const TextStyle(
                                                 fontWeight: FontWeight.bold),
                                             shape: RoundedRectangleBorder(

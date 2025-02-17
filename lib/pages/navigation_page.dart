@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_innsbruck_match/pages/alfa.dart';
 import 'package:travel_innsbruck_match/pages/beta.dart';
+import 'package:travel_innsbruck_match/pages/setting_page.dart';
 
 class NavigationPage extends StatefulWidget {
   const NavigationPage({super.key});
@@ -12,7 +13,7 @@ class NavigationPage extends StatefulWidget {
 class _NavigationPageState extends State<NavigationPage> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [const Alfa(), const Beta(), const Alfa()];
+  final List<Widget> _pages = [const Alfa(), const Beta(), const SettingPage()];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -39,37 +40,25 @@ class _NavigationPageState extends State<NavigationPage> {
               topRight: Radius.circular(20),
             ),
             child: BottomNavigationBar(
-              backgroundColor: const Color(0xffF2A8A8),
+              backgroundColor: const Color(0xffFF2727),
               currentIndex: _selectedIndex,
               showSelectedLabels: false,
               showUnselectedLabels: false,
               onTap: _onItemTapped,
               items: [
                 BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.assignment_outlined,
-                    color: _selectedIndex == 0
-                        ? const Color(0xffFF2727)
-                        : Colors.white, // Color based on selection
-                  ),
+                  icon: Icon(Icons.assignment_outlined,
+                      color: _selectedIndex == 0 ? Colors.white : Colors.black),
                   label: '',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.play_circle_fill,
-                    color: _selectedIndex == 1
-                        ? const Color(0xffFF2727)
-                        : Colors.white, // Color based on selection
-                  ),
+                  icon: Icon(Icons.play_circle_fill,
+                      color: _selectedIndex == 1 ? Colors.white : Colors.black),
                   label: '',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.settings,
-                    color: _selectedIndex == 2
-                        ? const Color(0xffFF2727)
-                        : Colors.white, // Color based on selection
-                  ),
+                  icon: Icon(Icons.settings,
+                      color: _selectedIndex == 2 ? Colors.white : Colors.black),
                   label: '',
                 ),
               ],

@@ -18,7 +18,7 @@ class _AlfaState extends State<Alfa> {
       children: [
         Positioned.fill(
           child: Image.asset(
-            'images/salut.jpg',
+            'images/back.webp',
             fit: BoxFit.cover,
           ),
         ),
@@ -30,8 +30,6 @@ class _AlfaState extends State<Alfa> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                buildtextgridinfo(context,
-                    "Start our game and \n find out what feature \n you should visit"),
                 buildHeight(context, 0.02),
                 GestureDetector(
                     onTap: () {

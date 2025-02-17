@@ -19,7 +19,7 @@ Widget buildContainer(BuildContext context) {
     width: width * 0.4, // Increased width for better space
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15),
-      color: Colors.white, // Set a background color
+      color: Color(0xffFF2727), // Set a background color
     ),
     child: Center(
       child: GestureDetector(
@@ -30,7 +30,7 @@ Widget buildContainer(BuildContext context) {
           "Start Now",
           style: TextStyle(
             fontSize: 18,
-            color: Colors.black,
+            color: Colors.white,
             fontFamily: 'J', // Apply your custom font family
             fontWeight: FontWeight.bold,
           ),
@@ -47,8 +47,9 @@ Widget buildContainerStart(BuildContext context) {
   return Container(
     padding: const EdgeInsets.all(16),
     decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: const Color(0xffF2A8A8)),
+      borderRadius: BorderRadius.circular(15),
+      color: Color(0xffFF2727),
+    ),
     child: const Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +59,7 @@ Widget buildContainerStart(BuildContext context) {
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
-                color: Colors.black,
+                color: Colors.white,
                 fontFamily: 'J'), // Apply font family "J"
           ),
           SizedBox(height: 10), // Add space between the title and content
@@ -66,7 +67,7 @@ Widget buildContainerStart(BuildContext context) {
             "1. The user selects answers.",
             style: TextStyle(
                 fontSize: 16,
-                color: Colors.black,
+                color: Colors.white,
                 fontFamily: 'J'), // Apply font family "J"
           ),
           SizedBox(height: 5),
@@ -74,7 +75,7 @@ Widget buildContainerStart(BuildContext context) {
             "2. Each answer adds points.",
             style: TextStyle(
                 fontSize: 16,
-                color: Colors.black,
+                color: Colors.white,
                 fontFamily: 'J'), // Apply font family "J"
           ),
           SizedBox(height: 5),
@@ -82,7 +83,7 @@ Widget buildContainerStart(BuildContext context) {
             "3. The total score is calculated.",
             style: TextStyle(
                 fontSize: 16,
-                color: Colors.black,
+                color: Colors.white,
                 fontFamily: 'J'), // Apply font family "J"
           ),
           SizedBox(height: 5),
@@ -90,7 +91,7 @@ Widget buildContainerStart(BuildContext context) {
             "4. Based on the score, a recommendation is displayed.",
             style: TextStyle(
                 fontSize: 16,
-                color: Colors.black,
+                color: Colors.white,
                 fontFamily: 'J'), // Apply font family "J"
           ),
         ],

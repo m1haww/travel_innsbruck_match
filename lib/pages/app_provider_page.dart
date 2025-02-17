@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_innsbruck_match/pages/classes.dart';
 
 class AppProviderPage extends ChangeNotifier {
+  var directorypath = "";
   final List<Selected> challenges = [
     Selected(title: "Selfie with Goldenes Dachl", image: "images/1.jpg"),
     Selected(title: "Find Ambras Castle Entrance", image: "images/2.jpg"),
@@ -9,10 +10,37 @@ class AppProviderPage extends ChangeNotifier {
     Selected(title: "Snap a Tiroler Gröstl meal", image: "images/4.jpg"),
   ];
 
-  Selected? selectedChallenge;
+  // List of selected challenges
+  final List<Selected> _selectedChallenges = [];
 
-  void setSelectedChallenge(Selected challenge) {
-    selectedChallenge = challenge;
+  List<Selected> get selectedChallenges => _selectedChallenges;
+
+  // Method to add a challenge to the selected list
+  void selectChallenge(Selected challenge) {
+    if (!_selectedChallenges.contains(challenge)) {
+      _selectedChallenges.add(challenge);
+      notifyListeners();
+    }
+  }
+
+  void addChallenge(Selected challenge) {
+    _selectedChallenges.add(challenge);
+    notifyListeners();
+  }
+
+  // Method to delete a challenge from the selected list
+  void deleteChallenge(Selected challenge) {
+    _selectedChallenges.remove(challenge);
+    notifyListeners();
+  }
+
+  ThemeMode _themeMode = ThemeMode.system; // Implicit urmează tema sistemului
+
+  ThemeMode get themeMode => _themeMode;
+
+  void toggleTheme() {
+    _themeMode =
+        _themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
     notifyListeners();
   }
 

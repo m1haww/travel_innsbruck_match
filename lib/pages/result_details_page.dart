@@ -17,7 +17,7 @@ class _ResultDetailsPageState extends State<ResultDetailsPage> {
       children: [
         Positioned.fill(
           child: Image.asset(
-            'images/salut.jpg',
+            'images/back.webp',
             fit: BoxFit.cover,
           ),
         ),
