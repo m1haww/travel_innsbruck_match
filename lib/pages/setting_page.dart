@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:in_app_review/in_app_review.dart';
+import 'package:provider/provider.dart';
+import 'package:travel_innsbruck_match/pages/app_provider_page.dart';
 import 'package:travel_innsbruck_match/pages/base.dart';
 import 'package:url_launcher/url_launcher.dart';
 

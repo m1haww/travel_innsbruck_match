@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:travel_innsbruck_match/pages/app_provider_page.dart';
 import 'package:travel_innsbruck_match/pages/base.dart';
 import 'package:travel_innsbruck_match/pages/base_container.dart';
 import 'package:travel_innsbruck_match/pages/quiz_page.dart';
