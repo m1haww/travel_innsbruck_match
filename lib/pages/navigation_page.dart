@@ -27,7 +27,7 @@ class _NavigationPageState extends State<NavigationPage> {
       children: [
         Positioned.fill(
           child: Image.asset(
-            'images/salut.jpg',
+            'images/back.webp',
             fit: BoxFit.cover,
           ),
         ),

@@ -10,28 +10,26 @@ Widget buildWidth(BuildContext context, double percentage) {
   return SizedBox(width: width * percentage);
 }
 
-Widget buildContainer(BuildContext context) {
+Widget buildContainer(BuildContext context, VoidCallback onTap) {
   final height = MediaQuery.of(context).size.height;
   final width = MediaQuery.of(context).size.width;
 
-  return Container(
-    height: height * 0.06, // Increased height for better display
-    width: width * 0.4, // Increased width for better space
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(15),
-      color: Color(0xffFF2727), // Set a background color
-    ),
-    child: Center(
-      child: GestureDetector(
-        onTap: () {
-          // Add your logic here for "Start Now" action
-        },
-        child: const Text(
+  return GestureDetector(
+    onTap: onTap,
+    child: Container(
+      height: height * 0.06,
+      width: width * 0.4,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: const Color(0xffFF2727),
+      ),
+      child: const Center(
+        child: Text(
           "Start Now",
           style: TextStyle(
             fontSize: 18,
             color: Colors.white,
-            fontFamily: 'J', // Apply your custom font family
+            fontFamily: 'J',
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -60,39 +58,31 @@ Widget buildContainerStart(BuildContext context) {
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
                 color: Colors.white,
-                fontFamily: 'J'), // Apply font family "J"
+                fontFamily: 'J'),
           ),
-          SizedBox(height: 10), // Add space between the title and content
+          SizedBox(height: 10),
           Text(
             "1. The user selects answers.",
-            style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-                fontFamily: 'J'), // Apply font family "J"
+            style:
+                TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'J'),
           ),
           SizedBox(height: 5),
           Text(
             "2. Each answer adds points.",
-            style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-                fontFamily: 'J'), // Apply font family "J"
+            style:
+                TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'J'),
           ),
           SizedBox(height: 5),
           Text(
             "3. The total score is calculated.",
-            style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-                fontFamily: 'J'), // Apply font family "J"
+            style:
+                TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'J'),
           ),
           SizedBox(height: 5),
           Text(
             "4. Based on the score, a recommendation is displayed.",
-            style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-                fontFamily: 'J'), // Apply font family "J"
+            style:
+                TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'J'),
           ),
         ],
       ),

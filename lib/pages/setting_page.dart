@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:in_app_review/in_app_review.dart';
+import 'package:travel_innsbruck_match/pages/base.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingPage extends StatefulWidget {
@@ -47,10 +48,8 @@ class _SettingPageState extends State<SettingPage> {
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            title: const Text("Settings",
-                style: TextStyle(
-                  fontSize: 20,
-                )),
+            automaticallyImplyLeading: false,
+            title: buildbeta(context, "Settings"),
             backgroundColor: Colors.transparent,
           ),
           body: SafeArea(
@@ -60,13 +59,13 @@ class _SettingPageState extends State<SettingPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  GestureDetector(
-                      onTap: _launchUrl,
-                      child: buildButton(context, "PRIVACY POLICY", () {})),
-                  GestureDetector(
-                      onTap: _launchUrl,
-                      child: const Divider(height: 30, thickness: 2)),
-                  buildButton(context, "TERMS OF SERVICE", () {}),
+                  buildButton(
+                    context,
+                    "PRIVACY POLICY",
+                    _launchUrl,
+                  ),
+                  const Divider(height: 30, thickness: 2),
+                  buildButton(context, "TERMS OF SERVICE", _launchUrl),
                   const Divider(height: 30, thickness: 2),
                   GestureDetector(
                       onTap: _rateApp,

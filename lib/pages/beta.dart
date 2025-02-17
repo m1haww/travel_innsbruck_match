@@ -1,9 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
+import 'package:travel_innsbruck_match/pages/beta_details_page.dart';
 import 'package:travel_innsbruck_match/pages/classes.dart';
-import 'package:travel_innsbruck_match/pages/selected_details_page.dart';
 import 'app_provider_page.dart';
 import 'base.dart';
 import 'base_container.dart';
@@ -33,6 +35,7 @@ class _BetaState extends State<Beta> {
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             centerTitle: true,
             title: buildbeta(context, "Innsbruck Photo Challenge"),
             backgroundColor: Colors.transparent,
@@ -48,7 +51,10 @@ class _BetaState extends State<Beta> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Icon(Icons.party_mode_sharp),
+                        const Icon(
+                          Icons.party_mode_sharp,
+                          color: Color(0xffFF2727),
+                        ),
                         buildWidth(context, 0.02),
                         buildbetasecond(
                             context, "What is the Photo Challenge?"),
@@ -123,66 +129,83 @@ class _BetaState extends State<Beta> {
   }
 
   Widget _buildSelectCard(Selected challenge) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color(0xffFF2727),
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 5,
-            offset: Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
-            child: Stack(
-              children: [
-                Image.asset(
-                  challenge.image,
-                  width: double.infinity,
-                  height: 100,
-                  fit: BoxFit.cover,
-                ),
-                Positioned(
-                  bottom: 5, // Position the text 10 pixels from the bottom
-                  left: 5, // Position the text 10 pixels from the left
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    decoration: BoxDecoration(
-                      color: Colors
-                          .black54, // Semi-transparent black background to improve readability
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Text(
-                      challenge.title,
-                      style: const TextStyle(
-                        fontFamily: "Sf",
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
-                        color: Color(0xffFF2727),
-                        shadows: [
-                          Shadow(
-                            color: Colors.black45,
-                            offset: Offset(1, 1),
-                            blurRadius: 4,
-                          ),
-                        ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            CupertinoPageRoute(
+              builder: (context) => BetaDetailsPage(challenge: challenge),
+            ));
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Color(0xffFF2727),
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 5,
+              offset: Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(12)),
+              child: Stack(
+                children: [
+                  challenge.isfromfile
+                      ? Image.file(
+                          File(challenge.image),
+                          width: double.infinity,
+                          height: 100,
+                          fit: BoxFit.cover,
+                        )
+                      : Image.asset(
+                          challenge.image,
+                          width: double.infinity,
+                          height: 100,
+                          fit: BoxFit.cover,
+                        ),
+                  Positioned(
+                    bottom: 5, // Position the text 10 pixels from the bottom
+                    left: 5, // Position the text 10 pixels from the left
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 5, horizontal: 10),
+                      decoration: BoxDecoration(
+                        color: Colors
+                            .black54, // Semi-transparent black background to improve readability
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                      child: Text(
+                        challenge.title,
+                        style: const TextStyle(
+                          fontFamily: "Sf",
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                          color: Color(0xffFF2727),
+                          shadows: [
+                            Shadow(
+                              color: Colors.black45,
+                              offset: Offset(1, 1),
+                              blurRadius: 4,
+                            ),
+                          ],
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

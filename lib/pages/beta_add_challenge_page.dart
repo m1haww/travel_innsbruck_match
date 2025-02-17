@@ -41,6 +41,8 @@ class _BetaAddChallengePageState extends State<BetaAddChallengePage> {
 
         setState(() {
           _selectedImage = cachedImage;
+          _selectedChallenge = Selected(title: "", image: _selectedImage!.path);
+          _selectedChallenge?.isfromfile = true;
           print("Image cached at: ${cachedImage.path}");
         });
       }
@@ -65,6 +67,15 @@ class _BetaAddChallengePageState extends State<BetaAddChallengePage> {
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
+            leading: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(
+                Icons.arrow_back,
+                color: Color(0xffFF2727),
+              ),
+            ),
             backgroundColor: Colors.transparent,
             title: const Text(
               'Innsbruck Photo Challenge',
@@ -148,6 +159,7 @@ class _BetaAddChallengePageState extends State<BetaAddChallengePage> {
                 _challengeController.text =
                     challenge.title; // Display the title in the text field
               });
+              print(_selectedChallenge?.image);
             },
             child: Container(
               decoration: BoxDecoration(
@@ -197,12 +209,11 @@ class _BetaAddChallengePageState extends State<BetaAddChallengePage> {
                 final provider =
                     Provider.of<AppProviderPage>(context, listen: false);
 
-                // Save the selected challenge, with image data if available
                 final challenge = Selected(
                   title: _challengeController.text,
-                  image: _selectedImage?.path ?? 'default_image_path',
+                  image: _selectedChallenge?.image ?? 'default_image_path',
                 );
-
+                challenge.isfromfile = _selectedChallenge?.isfromfile ?? false;
                 provider.addChallenge(challenge);
                 Navigator.pop(context);
                 Navigator.pop(context);

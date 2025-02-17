@@ -31,15 +31,13 @@ class _AlfaState extends State<Alfa> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 buildHeight(context, 0.02),
-                GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          CupertinoPageRoute(
-                            builder: (context) => const QuizPage(),
-                          ));
-                    },
-                    child: buildContainer(context)),
+                buildContainer(context, () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => QuizPage(),
+                      ));
+                }),
                 buildHeight(context, 0.02),
                 buildContainerStart(context),
                 buildHeight(context, 0.02),

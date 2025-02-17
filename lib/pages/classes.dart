@@ -37,13 +37,10 @@ class Challenge {
 class Selected {
   final String title;
   final String image;
+  bool isfromfile = false;
 
   Selected({
     required this.title,
     required this.image,
   });
-
-  static Selected? fromMap(Map<String, dynamic> selectedMap) {
-    return null;
-  }
 }

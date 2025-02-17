@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_innsbruck_match/pages/app_provider_page.dart';
+import 'package:travel_innsbruck_match/pages/base.dart';
 import 'package:travel_innsbruck_match/pages/result_details_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -39,14 +40,17 @@ class ResultPage extends StatelessWidget {
         ),
         Scaffold(
           appBar: AppBar(
-              centerTitle: true,
-              title: const Text(
-                'Results',
-                style: TextStyle(
-                  fontSize: 28,
-                  color: const Color(0xffFF2727),
+              leading: GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(
+                  Icons.arrow_back,
+                  color: Color(0xffFF2727),
                 ),
               ),
+              centerTitle: true,
+              title: buildbeta(context, "Results"),
               backgroundColor: Colors.transparent),
           backgroundColor: Colors.transparent,
           body: SafeArea(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_innsbruck_match/pages/base.dart';
 import 'package:travel_innsbruck_match/pages/classes.dart';
 
 class ResultDetailsPage extends StatefulWidget {
@@ -25,14 +26,14 @@ class _ResultDetailsPageState extends State<ResultDetailsPage> {
           appBar: AppBar(
             leading: GestureDetector(
               onTap: () {
-                Navigator.pop(context); // Cleaner version of Navigator.pop()
+                Navigator.pop(context);
               },
-              child: const Icon(Icons.arrow_back),
+              child: Icon(
+                Icons.arrow_back,
+                color: Color(0xffFF2727),
+              ),
             ),
-            title: const Text(
-              'Details',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
+            title: buildbeta(context, "Details"),
             backgroundColor: Colors.transparent,
           ),
           backgroundColor: Colors.transparent,
@@ -61,7 +62,7 @@ class _ResultDetailsPageState extends State<ResultDetailsPage> {
                           style: const TextStyle(
                             fontSize: 26,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black87,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -84,7 +85,7 @@ class _ResultDetailsPageState extends State<ResultDetailsPage> {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: Color(0xffFF2727),
                         ),
                       ),
                     ],
@@ -93,7 +94,7 @@ class _ResultDetailsPageState extends State<ResultDetailsPage> {
 
                   // The short description of the place
                   Card(
-                    color: Colors.white,
+                    color: Colors.red,
                     elevation: 4,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -104,7 +105,7 @@ class _ResultDetailsPageState extends State<ResultDetailsPage> {
                         widget.result.descriptiongrid,
                         style: const TextStyle(
                           fontSize: 16,
-                          color: Colors.black87,
+                          color: Colors.white,
                         ),
                         textAlign: TextAlign.justify, // Better readability
                       ),

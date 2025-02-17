@@ -18,6 +18,15 @@ class BetaSecondPage extends StatelessWidget {
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
+            leading: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(
+                Icons.arrow_back,
+                color: Color(0xffFF2727),
+              ),
+            ),
             title: const Text(
               'Innsbruck Photo Challenge',
               style: TextStyle(color: Colors.white),
