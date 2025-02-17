@@ -105,7 +105,7 @@ Widget buildContainerBeta(BuildContext context) {
   final width = MediaQuery.of(context).size.width;
 
   return Container(
-    height: height * 0.4, // Adjust the height accordingly to fit all content
+    height: height * 0.30, // Adjust the height accordingly to fit all content
     width: double.infinity,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15),
@@ -159,27 +159,7 @@ Widget buildContainerBeta(BuildContext context) {
               ),
             ],
           ),
-          buildHeight(context, 0.02), // Vertical space between rows
 
-          // Third Row: Additional instructions or content
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Image(image: AssetImage("images/Ellipse 1.png")),
-              buildWidth(context, 0.02),
-              const Expanded(
-                // Using Expanded widget to allow text to take remaining space
-                child: Text(
-                  "Track Your Progress – Monitor your score as you complete each mission.",
-                  style: TextStyle(
-                      fontFamily: "Indi",
-                      fontSize: 14,
-                      color: Color(0xffF5F5F5),
-                      fontWeight: FontWeight.w400),
-                ),
-              ),
-            ],
-          ),
           buildHeight(context, 0.02), // Vertical space between rows
 
           // Fourth Row: Additional instructions or content
@@ -212,7 +192,7 @@ Widget buildContainerBeta(BuildContext context) {
               const Expanded(
                 // Using Expanded widget to allow text to take remaining space
                 child: Text(
-                  "Complete the Challenge – Finish each mission for a reward and unlock more.",
+                  "Complete the Challenge – Finish each mission and unlock more.",
                   style: TextStyle(
                       fontFamily: "Indi",
                       fontSize: 14,

@@ -44,8 +44,7 @@ class ResultPage extends StatelessWidget {
                 'Results',
                 style: TextStyle(
                   fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: const Color(0xffFF2727),
                 ),
               ),
               backgroundColor: Colors.transparent),
